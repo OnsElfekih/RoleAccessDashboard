@@ -4,9 +4,7 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 
-// @route POST api/users/register
-// @desc Register new user
-// @access Public
+
 router.post("/register", async (req, res) => {
     const { username, email, password, role } = req.body;
 
@@ -45,9 +43,7 @@ router.post("/register", async (req, res) => {
     }
 });
 
-// @route POST api/users/login
-// @desc Login user
-// @access Public
+
 router.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -81,9 +77,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// @route GET api/users/all
-// @desc Get all users
-// @access Public (Consider protecting this route)
+
 router.get("/all", async (req, res) => {
     try {
         const users = await User.find();
@@ -93,7 +87,7 @@ router.get("/all", async (req, res) => {
     }
 });
 
-// Lire un utilisateur par ID (READ)
+
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -106,8 +100,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: 'Erreur lors de la récupération de l\'utilisateur', error });
     }
     });
-
-    // Mettre à jour un utilisateur par ID (UPDATE)
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { username, email, password, role } = req.body;
@@ -126,7 +118,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json({ message: 'Erreur lors de la mise à jour de l\'utilisateur', error });
     }
     });
-    // Supprimer un utilisateur par ID (DELETE)
+
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {

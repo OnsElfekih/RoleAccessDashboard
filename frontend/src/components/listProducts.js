@@ -2,24 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { AppBar, Toolbar} from "@mui/material";
 import { Dashboard as DashboardIcon } from "@mui/icons-material";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Typography,
-  Box,
-  IconButton,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Button,
-  TextField,
-} from "@mui/material";
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper,Typography,Button,Box,IconButton,Dialog,DialogActions,DialogContent,DialogTitle,TextField,MenuItem} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Navbar from "./navbar";
@@ -31,8 +14,8 @@ const ListProducts = () => {
   const [productToDelete, setProductToDelete] = useState(null);
   const [openModifyDialog, setOpenModifyDialog] = useState(false);
   const [productToModify, setProductToModify] = useState({});
-  const [openAddDialog, setOpenAddDialog] = useState(false); // État pour ouvrir la boîte de dialogue d'ajout
-  const [newProduct, setNewProduct] = useState({ name: "", quantite: "", dateFabrication: "" }); // État pour le nouveau produit
+  const [openAddDialog, setOpenAddDialog] = useState(false); 
+  const [newProduct, setNewProduct] = useState({ name: "", quantite: "", dateFabrication: "" });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -95,7 +78,7 @@ const ListProducts = () => {
 
   const handleAddDialogClose = () => {
     setOpenAddDialog(false);
-    setNewProduct({ name: "", quantite: "", dateFabrication: "" }); // Réinitialiser les champs
+    setNewProduct({ name: "", quantite: "", dateFabrication: "" }); 
 };
 
 
@@ -109,22 +92,19 @@ const handleAddProduct = async () => {
   try {
       const response = await axios.post("http://localhost:3001/products/add", newProduct);
       if (response.status === 201) {
-          setProducts([...products, response.data.product]); // Ajouter le nouveau produit à la liste
+          setProducts([...products, response.data.product]);
           setMessage("Produit ajouté avec succès");
-          handleAddDialogClose(); // Fermer la boîte de dialogue d'ajout
+          handleAddDialogClose(); 
       }
   } catch (error) {
       setMessage("Erreur lors de l'ajout du produit");
   }
 };
 
-
-
   return (
         <Box sx={{ display: "flex" }}>
       <Navbar/>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          {/* AppBar */}
           <AppBar position="static">
         <Toolbar>
           <DashboardIcon sx={{ mr: 2 }} />
@@ -139,7 +119,7 @@ const handleAddProduct = async () => {
       <Button
         variant="contained"
         color="primary"
-        onClick={() => setOpenAddDialog(true)} // Ouvre la boîte de dialogue d'ajout
+        onClick={() => setOpenAddDialog(true)} 
         sx={{ mt: 3,mb:3}}
       >
         Ajouter Produit
@@ -175,7 +155,6 @@ const handleAddProduct = async () => {
         </Table>
       </TableContainer>
 
-      {/* Boîte de dialogue pour ajouter un produit */}
       <Dialog open={openAddDialog} onClose={handleAddDialogClose}>
         <DialogTitle>Ajouter un produit</DialogTitle>
         <DialogContent>
@@ -212,8 +191,6 @@ const handleAddProduct = async () => {
           </Button>
         </DialogActions>
       </Dialog>
-
-      {/* Boîte de dialogue pour confirmer la suppression */}
       <Dialog open={openDialog} onClose={handleDialogClose}>
         <DialogTitle>Confirmation</DialogTitle>
         <DialogContent>
@@ -231,7 +208,6 @@ const handleAddProduct = async () => {
         </DialogActions>
       </Dialog>
 
-      {/* Boîte de dialogue pour modifier un produit */}
       <Dialog open={openModifyDialog} onClose={handleModifyDialogClose}>
         <DialogTitle>Modifier le produit</DialogTitle>
         <DialogContent>

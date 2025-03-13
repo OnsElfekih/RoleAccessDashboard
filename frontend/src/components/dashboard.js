@@ -13,7 +13,6 @@ const Dashboard = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Récupération des données via Axios
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,30 +27,25 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  // Palette de couleurs pour les graphiques
   const colors = ["#FF5733", "#33FF57", "#3380FF", "#FF33A8", "#FFC300", "#9C33FF"];
 
-  // Affichage des graphiques
+
   return (
     <Box sx={{ display: "flex" }}>
       <Navbar/>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* AppBar */}
         <AppBar position="static">
           <Toolbar>
             <DashboardIcon sx={{ mr: 2 }} />
             <Typography variant="h6">Tableau de Bord</Typography>
           </Toolbar>
         </AppBar>
-
-        {/* Affichage du loading ou des graphiques */}
         {loading ? (
           <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
             <CircularProgress />
           </Box>
         ) : (
           <Grid container spacing={3} sx={{ mt: 3 }}>
-            {/* Graphique en Ligne */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper sx={{ p: 2, borderRadius: 2, boxShadow: 3 }}>
                 <Typography variant="h6" align="center">Graphique en Ligne</Typography>
@@ -67,8 +61,6 @@ const Dashboard = () => {
                 </ResponsiveContainer>
               </Paper>
             </Grid>
-
-            {/* Graphique en Barres */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper sx={{ p: 2, borderRadius: 2, boxShadow: 3 }}>
                 <Typography variant="h6" align="center">Graphique en Barres</Typography>
@@ -85,7 +77,6 @@ const Dashboard = () => {
               </Paper>
             </Grid>
 
-            {/* Graphique en Camembert */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper sx={{ p: 2, borderRadius: 2, boxShadow: 3 }}>
                 <Typography variant="h6" align="center">Graphique en Camembert</Typography>
@@ -106,7 +97,6 @@ const Dashboard = () => {
               </Paper>
             </Grid>
 
-            {/* Graphique en Aire */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper sx={{ p: 2, borderRadius: 2, boxShadow: 3 }}>
                 <Typography variant="h6" align="center">Graphique en Aire</Typography>
@@ -123,7 +113,6 @@ const Dashboard = () => {
               </Paper>
             </Grid>
 
-            {/* Graphique Radar */}
             <Grid item xs={12} md={6} lg={6}>
               <Paper sx={{ p: 2, borderRadius: 2, boxShadow: 3 }}>
                 <Typography variant="h6" align="center">Graphique Radar</Typography>

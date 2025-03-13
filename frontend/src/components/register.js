@@ -25,7 +25,7 @@ const Register = () => {
         formData
       );
       setMessage(response.data.msg);
-      setFormData({ username: "", email: "", password: "" , role:""}); // Réinitialisation des champs
+      setFormData({ username: "", email: "", password: "" , role:""});
     } catch (error) {
       setMessage(error.response?.data?.msg || "Une erreur est survenue");
     }

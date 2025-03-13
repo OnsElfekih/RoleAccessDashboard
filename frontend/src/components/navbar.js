@@ -16,7 +16,6 @@ anchor="left"
 <ListItemIcon><DashboardIcon /></ListItemIcon>
 <ListItemText primary="Dashboard" />
 </ListItem>
-{/* Affichage conditionnel des liens réservés aux admins */}
 {role === "admin" && (
 <>
 <ListItem button component={Link} to="/home">

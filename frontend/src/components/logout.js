@@ -6,12 +6,9 @@ const Logout = () => {
   const navigate = useNavigate(); // Déclaration de useNavigate
 
   useEffect(() => {
-    // Suppression du token d'authentification ou autres informations nécessaires
-    localStorage.removeItem('authToken'); // Remplacer 'authToken' par le nom de la clé utilisée
+    localStorage.removeItem('authToken'); 
     console.log("Utilisateur déconnecté");
-
-    // Redirection vers la page de connexion
-    navigate('/'); // Redirige l'utilisateur vers '/login'
+    navigate('/');
   }, [navigate]);
 
   return (

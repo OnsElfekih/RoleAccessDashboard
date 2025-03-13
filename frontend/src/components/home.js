@@ -2,25 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AppBar, Toolbar} from "@mui/material";
 import { Dashboard as DashboardIcon } from "@mui/icons-material";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Typography,
-  Button,
-  Box,
-  IconButton,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  TextField,
-  MenuItem
-} from "@mui/material";
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper,Typography,Button,Box,IconButton,Dialog,DialogActions,DialogContent,DialogTitle,TextField,MenuItem} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Navbar from "./navbar";
@@ -92,7 +74,6 @@ const UserList = () => {
     <Box sx={{ display: "flex" }}>
     <Navbar/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            {/* AppBar */}
             <AppBar position="static">
         <Toolbar>
           <DashboardIcon sx={{ mr: 2 }} />
@@ -105,7 +86,7 @@ const UserList = () => {
         variant="contained"
         color="primary"
         onClick={() => setOpenAdd(true)}
-        sx={{ mt: 3,mb:3}} // Marge supérieure pour espacer le bouton de l'AppBar
+        sx={{ mt: 3,mb:3}} 
         >
         Ajouter Utilisateur
       </Button>
@@ -144,7 +125,6 @@ const UserList = () => {
         </TableContainer>
       )}
 
-      {/* Dialog Add User */}
       <Dialog open={openAdd} onClose={() => setOpenAdd(false)}>
         <DialogTitle>Ajouter un Utilisateur</DialogTitle>
         <DialogContent>
@@ -188,7 +168,6 @@ const UserList = () => {
         </DialogActions>
       </Dialog>
 
-      {/* Dialog Edit User */}
       <Dialog open={openEdit} onClose={() => setOpenEdit(false)}>
         <DialogTitle>Modifier Utilisateur</DialogTitle>
         <DialogContent>

@@ -7,7 +7,7 @@ const Login = () => {
 const [formData, setFormData] = useState({ email: "", password: "" });
 const [error, setError] = useState(null);
 const [loading, setLoading] = useState(false);
-const navigate = useNavigate(); // Pour rediriger après connexion
+const navigate = useNavigate(); 
 const handleChange = (e) => {
 setFormData({ ...formData, [e.target.name]: e.target.value });
 };
@@ -23,10 +23,9 @@ const handleSubmit = async (e) => {
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.message || "Échec de la connexion");
-// Stockage du token et rôle dans les cookies
 Cookies.set("token", data.token, { expires: 1, secure: true, sameSite: "Strict" });
 Cookies.set("role", data.role, { expires: 1, secure: true, sameSite: "Strict" });
-navigate("/dashboard"); // Redirection après connexion
+navigate("/dashboard");
 } catch (err) {
 setError(err.message);
 } finally {

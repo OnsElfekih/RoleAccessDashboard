@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const Product = require("../../models/Product");
 
-// @route POST api/products/add
-// @desc Add new product
-// @access Public
 router.post("/add", async (req, res) => {
     const { name, quantite, dateFabrication } = req.body;
 
@@ -26,9 +23,6 @@ router.post("/add", async (req, res) => {
     }
 });
 
-// @route GET api/products/all
-// @desc Get all products
-// @access Public
 router.get("/all", async (req, res) => {
     try {
         const products = await Product.find();
@@ -38,9 +32,6 @@ router.get("/all", async (req, res) => {
     }
 });
 
-// @route GET api/products/:id
-// @desc Get product by ID
-// @access Public
 router.get("/:id", async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -53,9 +44,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// @route PUT api/products/:id
-// @desc Update product by ID
-// @access Public
+
 router.put("/:id", async (req, res) => {
     const { name, quantite, dateFabrication } = req.body;
     try {
@@ -69,9 +58,6 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// @route DELETE api/products/:id
-// @desc Delete product by ID
-// @access Public
 router.delete("/:id", async (req, res) => {
     try {
         const deletedProduct = await Product.findByIdAndDelete(req.params.id);
