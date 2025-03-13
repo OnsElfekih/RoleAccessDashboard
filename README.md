@@ -1,6 +1,6 @@
-# Continent Dashboard
+# RoleAccessDashboard
 
-The **Continent Dashboard** is a web application that allows administrators to manage users and products, with different levels of access control based on user roles. The application provides a clear distinction between admin and regular users in terms of visibility and management capabilities.
+The **RoleAccessDashboard** is a web application that allows administrators to manage users and products, with different levels of access control based on user roles. The application provides a clear distinction between admin and regular users in terms of visibility and management capabilities.
 
 ## Features
 
