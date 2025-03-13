@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { TextField, Button, Box, Typography, MenuItem, Select, FormControl, InputLabel } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -86,6 +87,12 @@ required
 S'inscrire
 </Button>
 </form>
+<Typography mt={2}>
+Déjà avoir un compte ?{" "}
+<Link to="/" style={{ color: "blue", textDecoration: "underline" }}>
+Connectez-vous ici
+</Link>
+</Typography>
 {message && (
 <Typography color="error" textAlign="center" mt={2}>
 {message}

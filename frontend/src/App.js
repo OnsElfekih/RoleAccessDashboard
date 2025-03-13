@@ -4,6 +4,8 @@ import Home from "./components/home"; // Page après connexion
 import ListProducts from "./components/listProducts";
 import Login from "./components/login";
 import Dashboard from "./components/dashboard";
+import Navbar from "./components/navbar";
+import Logout from "./components/logout";
 function App() {
 return (
 <Router>
@@ -13,6 +15,8 @@ return (
 <Route path="/home" element={<Home />} />
 <Route path="/listProducts" element={<ListProducts/>} />
 <Route path="/dashboard" element={<Dashboard/>} />
+<Route path="/navbar" element={<Navbar/>} />
+<Route path="/logout" element={<Logout/>} />
 </Routes>
 </Router>
 );

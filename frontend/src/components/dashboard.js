@@ -7,6 +7,7 @@ import {
 } from "recharts";
 import { Box, AppBar, Toolbar, Typography, CircularProgress, Grid, Paper } from "@mui/material";
 import { Dashboard as DashboardIcon } from "@mui/icons-material";
+import Navbar from "./navbar";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ const Dashboard = () => {
   // Affichage des graphiques
   return (
     <Box sx={{ display: "flex" }}>
+      <Navbar/>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* AppBar */}
         <AppBar position="static">

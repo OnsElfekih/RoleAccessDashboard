@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { AppBar, Toolbar} from "@mui/material";
+import { Dashboard as DashboardIcon } from "@mui/icons-material";
 import {
   Table,
   TableBody,
@@ -20,6 +22,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Navbar from "./navbar";
 
 const ListProducts = () => {
   const [products, setProducts] = useState([]);
@@ -118,10 +121,16 @@ const handleAddProduct = async () => {
 
 
   return (
-    <Box sx={{ width: "100vw", height: "100vh", p: 3, display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Typography variant="h4" mb={2} textAlign="center">
-        Liste des Produits
-      </Typography>
+        <Box sx={{ display: "flex" }}>
+      <Navbar/>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          {/* AppBar */}
+          <AppBar position="static">
+        <Toolbar>
+          <DashboardIcon sx={{ mr: 2 }} />
+          <Typography variant="h6">Liste des Produits</Typography>
+        </Toolbar>
+      </AppBar>
       {message && (
         <Typography color="error" textAlign="center" mt={2}>
           {message}
@@ -131,7 +140,7 @@ const handleAddProduct = async () => {
         variant="contained"
         color="primary"
         onClick={() => setOpenAddDialog(true)} // Ouvre la boîte de dialogue d'ajout
-        sx={{ mb: 2 }}
+        sx={{ mt: 3,mb:3}}
       >
         Ajouter Produit
       </Button>
@@ -259,7 +268,7 @@ const handleAddProduct = async () => {
           </Button>
         </DialogActions>
       </Dialog>
-
+    </Box>
     </Box>
   );
 };

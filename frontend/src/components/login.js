@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
 // Stockage du token et rôle dans les cookies
 Cookies.set("token", data.token, { expires: 1, secure: true, sameSite: "Strict" });
 Cookies.set("role", data.role, { expires: 1, secure: true, sameSite: "Strict" });
-navigate("/home"); // Redirection après connexion
+navigate("/dashboard"); // Redirection après connexion
 } catch (err) {
 setError(err.message);
 } finally {

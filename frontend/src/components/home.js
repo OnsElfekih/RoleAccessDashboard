@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { AppBar, Toolbar} from "@mui/material";
+import { Dashboard as DashboardIcon } from "@mui/icons-material";
 import {
-  Container,
   Table,
   TableBody,
   TableCell,
@@ -22,6 +23,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Navbar from "./navbar";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -87,16 +89,24 @@ const UserList = () => {
   };
 
   return (
-    <Box sx={{ width: "100vw", height: "100vh", p: 3, display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Typography variant="h4" mb={2} textAlign="center">Liste des Utilisateurs</Typography>
+    <Box sx={{ display: "flex" }}>
+    <Navbar/>
+    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            {/* AppBar */}
+            <AppBar position="static">
+        <Toolbar>
+          <DashboardIcon sx={{ mr: 2 }} />
+          <Typography variant="h6">Liste des Utilisateurs</Typography>
+        </Toolbar>
+      </AppBar>
       {message && <Typography color="error" textAlign="center" mt={2}>{message}</Typography>}
       
       <Button
         variant="contained"
         color="primary"
         onClick={() => setOpenAdd(true)}
-        sx={{ mb: 2 }}
-      >
+        sx={{ mt: 3,mb:3}} // Marge supérieure pour espacer le bouton de l'AppBar
+        >
         Ajouter Utilisateur
       </Button>
 
@@ -213,7 +223,8 @@ const UserList = () => {
           <Button onClick={handleUpdate} color="primary">Enregistrer</Button>
         </DialogActions>
       </Dialog>
-    </Box>
+      </Box>
+      </Box>
   );
 };
 
